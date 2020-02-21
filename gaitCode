@@ -1,0 +1,120 @@
+if(slider.Check == 0)
+	$speed = -slider.translateX*2;
+
+if(slider.Check == 1){
+	$speed = slider.translateX*2;
+}
+
+ground.translateX = $speed*time;
+
+//---------------Back Left Foot Trot--------------------
+$amp = 1;
+$startPos = 0;
+B_L_Foot.rotateZ = 0;
+
+B_L_Foot.translateX=$amp*cos($speed*time+$startPos);
+
+B_L_Foot.translateY= $amp*sin($speed*time + $startPos);
+if(B_L_Foot.translateY <= 0)
+	B_L_Foot.translateY = 0;
+
+//---------------Back Left Foot Gallop--------------------
+if(abs($speed) >= 5){
+	$amp = 1.5;
+	$startPos = 3;
+	B_L_Foot.translateX = $amp*cos($speed*time + $startPos);
+
+	B_L_Foot.translateY = $amp*sin($speed*time + $startPos);
+	if(B_L_Foot.translateY <= 0)
+		B_L_Foot.translateY = 0;
+}
+
+//---------------Back Left Foot Rotation--------------------
+if(B_L_Foot.translateX < 0)
+	B_L_Foot.rotateZ = -35;
+if(B_L_Foot.translateX > 0 && B_L_Foot.translateX == 1)
+	B_L_Foot.rotateZ = 30;
+
+//----------------------------------------------------------
+
+//---------------Back Right Foot Trot--------------------
+$amp = 1;
+$startPos = 3;
+B_R_Foot.rotateZ = 0;
+
+B_R_Foot.translateX=$amp*cos($speed*time+$startPos);
+
+B_R_Foot.translateY= $amp*sin($speed*time + $startPos);
+if(B_R_Foot.translateY <= 0)
+	B_R_Foot.translateY = 0;
+
+//---------------Back Right Foot Gallop--------------------
+if (abs($speed) >= 5){
+	$amp = 1.5;
+	$startPos = 3;
+
+	B_R_Foot.translateX=$amp*cos($speed*time + $startPos);
+
+	B_R_Foot.translateY= $amp*sin($speed*time + $startPos);
+	if(B_R_Foot.translateY <= 0)
+		B_R_Foot.translateY = 0;
+}
+
+//---------------Back Right Foot Rotation--------------------
+if(B_R_Foot.translateX < 0)
+	B_R_Foot.rotateZ = -35;
+if(B_R_Foot.translateX > 0 && B_R_Foot.translateX == 1)
+	B_R_Foot.rotateZ = 30;
+
+//----------------------------------------------------------
+
+//---------------Front Left Foot Trot--------------------
+$amp = 1;
+$startPos = 3;
+F_L_Foot.rotateZ = 0;
+
+F_L_Foot.translateX=$amp*cos($speed*time+$startPos);
+
+F_L_Foot.translateY= $amp*sin($speed*time + $startPos);
+if(F_L_Foot.translateY <= 0)
+	F_L_Foot.translateY = 0;
+
+//---------------Front Left Foot Gallop--------------------
+if (abs($speed) >= 5){
+	$amp = 1;
+	$startPos = 2;
+
+	F_L_Foot.translateX=$amp*cos($speed*time+$startPos);
+
+	F_L_Foot.translateY= $amp*sin($speed*time + $startPos);
+	if(F_L_Foot.translateY <= 0)
+		F_L_Foot.translateY = 0;
+}
+
+//---------------Front Left Foot Rotation--------------------
+if(F_L_Foot.translateX < 0)
+	F_L_Foot.rotateZ = -35;
+
+if(F_L_Foot.translateX > 0 && F_L_Foot.translateX == 1)
+	F_L_Foot.rotateZ = 30;
+
+//----------------------------------------------------------
+
+//---------------Front Right Foot Trot--------------------
+$amp = 1;
+$startPos = 0;
+F_R_Foot.rotateZ = 0;
+
+
+F_R_Foot.translateX=$amp*cos(abs($speed*time)+$startPos);
+
+F_R_Foot.translateY= $amp*sin($speed*time + $startPos);
+if(F_R_Foot.translateY <= 0)
+	F_R_Foot.translateY = 0;
+
+//---------------Front Right Foot Rotation--------------------
+if(F_R_Foot.translateX < 0)
+	F_R_Foot.rotateZ = -35;
+
+if(F_R_Foot.translateX > 0 && F_R_Foot.translateX == 1)
+	F_R_Foot.rotateZ = 30;
